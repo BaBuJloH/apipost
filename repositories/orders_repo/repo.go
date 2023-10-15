@@ -101,10 +101,9 @@ func (r *Repo) GET(uid string) order.Data {
 }
 
 func (r *Repo) DEL(uid string) order.Data {
-	rows, err := r.conn.Query(r.ctx, fmt.Sprintf("delete from %s where order_uid = '%s' limit 1", TableName, uid))
+	err := r.conn.QueryRow(r.ctx, fmt.Sprintf("delete from %s where order_uid = '%s'", TableName, uid))
 	if err != nil {
 		return order.Data{}
 	}
-	defer rows.Close()
 	return order.Data{}
 }

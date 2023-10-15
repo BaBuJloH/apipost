@@ -3,8 +3,9 @@ package order
 import (
 	"apipost/model/order"
 	"apipost/service"
-	"github.com/gin-gonic/gin"
 	"net/http"
+
+	"github.com/gin-gonic/gin"
 )
 
 type Handlers struct {
@@ -37,7 +38,7 @@ func (t Handlers) Del(ctx *gin.Context) {
 	ctx.JSON(http.StatusOK, gin.H{
 		"full_path": ctx.FullPath(),
 		"method":    ctx.Request.Method,
-		"order_id":  ctx.Param("order_id"),
+		"order_uid": t.Repositories.Orders.DEL(ctx.Param("order_uid")),
 	})
 }
 
