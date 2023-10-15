@@ -75,7 +75,7 @@ func (r *Repo) Insert(ordr order.Data) error {
 
 	ins := fmt.Sprintf("insert into %s (order_uid, track_number, entry, delivery, payment, items, locale, internal_signature, customer_id, delivery_service, shardkey, sm_id, date_created, oof_shard) values ('%s', '%s', '%s', '%v', '%s', '%v', '%s', '%s', '%s', '%s', '%s', %d, '%v', '%s')",
 		//                                                                                                                                                                                                                              ^^    ^^    ^^
-		TableName, ordr.OrderUID, ordr.TrackNumber, ordr.Entry, string(deliveryBuff), paymentStr, string(itemsBuff), ordr.Locale, ordr.InternalSignature, ordr.CustomerID, ordr.DeliveryService, ordr.Shardkey, ordr.SmID, ordr.DateCreated.Format(time.RFC3339), ordr.OofShard)
+		TableName, ordr.OrderUID, ordr.TrackNumber, ordr.Entry, string(deliveryBuff), string(paymentStr), string(itemsBuff), ordr.Locale, ordr.InternalSignature, ordr.CustomerID, ordr.DeliveryService, ordr.Shardkey, ordr.SmID, ordr.DateCreated.Format(time.RFC3339), ordr.OofShard)
 
 	// TODO debug
 	log.Print(ins)
@@ -98,4 +98,13 @@ func (r *Repo) GET(uid string) order.Data {
 		}
 	}
 	return res
+}
+
+func (r *Repo) DEL(uid string) order.Data {
+	rows, err := r.conn.Query(r.ctx, fmt.Sprintf("delete from %s where order_uid = '%s' limit 1", TableName, uid))
+	if err != nil {
+		return order.Data{}
+	}
+	defer rows.Close()
+	return order.Data{}
 }
