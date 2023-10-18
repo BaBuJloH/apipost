@@ -1,0 +1,101 @@
+{
+    "order_uid": "77-87",
+    "track_number": "567344226",
+    "entry": "Mikhail Sholokhov",
+    "delivery":  {
+        "Name"   :  "random text" ,
+        "Phone"  :  "random text" ,
+        "Zip"    :  "random text" ,
+        "City"   :  "random text" ,
+        "Address":  "random text" ,
+        "Region" :  "random text" ,
+        "Email"  :  "random text" 
+    },
+    "payment": {
+        "Transaction" : "transaction",
+		"RequestID" : "request_id",
+		"Currency" : "currency",
+		"Provider" : "provider",
+		"Amount" : 5,
+		"PaymentDt" : 6,
+		"Bank" : "bank",
+		"DeliveryCost" : 7,
+		"GoodsTotal" :  8,
+		"CustomFee"  :  9
+    },
+    "items": [
+        {
+            "ChrtID" :  724,
+            "TrackNumber" : "track_number",
+            "Price" : 999,
+            "Rid" :  "red",
+            "Name" : "bubna",
+            "Sale" : 54,
+            "Size" : "size",
+            "TotalPrice" : 8900,
+            "NmID" :  4321,
+            "Brand"  : "brand",
+            "Status" :  320        
+        }
+    ],
+    "locale": "text",
+    "internal_signature": "also text",
+    "customer_id": "4",
+    "delivery_service": "The fate of man",
+    "shardkey": "moon shard",
+    "sm_id": 2,
+    "date_created": "1985-04-12T23:20:50.52Z",
+    "oof_shard": "я забыл как писать дату"
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+
+{
+    "order_uid": "77-87",
+    "track_number": "567344226",
+    "entry": "Mikhail Sholokhov",
+    "delivery":  {
+        "Name"   :  "random text" ,
+        "Phone"  :  "random text" ,
+        "Zip"    :  "random text" ,
+        "City"   :  "random text" ,
+        "Address":  "random text" ,
+        "Region" :  "random text" ,
+        "Email"  :  "random text" 
+    },
+    "payment": {
+        "Transaction" : "transaction",
+		"RequestID" : "request_id",
+		"Currency" : "currency",
+		"Provider" : "provider",
+		"Amount" : 5,
+		"PaymentDt" : 6,
+		"Bank" : "bank",
+		"DeliveryCost" : 7,
+		"GoodsTotal" :  8,
+		"CustomFee"  :  9
+    },
+    "items": [
+        {
+            "ChrtID" :  724,
+            "TrackNumber" : "track_number",
+            "Price" : 999,
+            "Rid" :  "red",
+            "Name" : "bubna",
+            "Sale" : 54,
+            "Size" : "size",
+            "TotalPrice" : 8900,
+            "NmID" :  4321,
+            "Brand"  : "brand",
+            "Status" :  320        
+        }
+    ],
+    "locale": "text",
+    "internal_signature": "also text",
+    "customer_id": "4",
+    "delivery_service": "The fate of man",
+    "shardkey": "moon shard",
+    "sm_id": 2,
+    "date_created": "1985-04-12T23:20:50.52Z",
+    "oof_shard": "я забыл как писать дату"
+}
