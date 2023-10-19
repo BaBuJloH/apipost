@@ -1,6 +1,7 @@
 package orders_repo
 
 import (
+	"github.com/jackc/pgx/v5/pgxpool"
 	"apipost/model/order"
 	"apipost/model/user"
 	"context"
@@ -9,7 +10,7 @@ import (
 	"log"
 	"time"
 
-	"github.com/jackc/pgx/v5"
+	//"github.com/jackc/pgx/v5"
 )
 
 const TableName = "orders"
@@ -17,14 +18,14 @@ const TableName = "orders"
 type Repo struct {
 	tableName string
 	ctx       context.Context
-	conn      *pgx.Conn
+	conn      pgxpool.Pool
 }
 
-func New(ctx context.Context, conn *pgx.Conn) *Repo {
+func New(ctx context.Context, conn *pgxpool.Pool) *Repo {
 	return &Repo{
 		tableName: TableName,
 		ctx:       ctx,
-		conn:      conn,
+		conn:      *conn,
 	}
 }
 

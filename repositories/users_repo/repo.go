@@ -1,23 +1,24 @@
 package users_repo
 
 import (
+	"github.com/jackc/pgx/v5/pgxpool"
 	"apipost/model/user"
 	"context"
 	"fmt"
-	"github.com/jackc/pgx/v5"
+	//"github.com/jackc/pgx/v5"
 )
 
 const TableName = "users"
 
 type Repo struct {
 	ctx  context.Context
-	conn *pgx.Conn
+	conn pgxpool.Pool
 }
 
-func New(ctx context.Context, conn *pgx.Conn) *Repo {
+func New(ctx context.Context, conn *pgxpool.Pool) *Repo {
 	return &Repo{
 		ctx:  ctx,
-		conn: conn,
+		conn: *conn,
 	}
 }
 

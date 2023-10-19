@@ -7,7 +7,7 @@ import (
 	"apipost/service"
 	"context"
 	"fmt"
-	"github.com/jackc/pgx/v5"
+	"github.com/jackc/pgx/v5/pgxpool"
 	"github.com/kelseyhightower/envconfig"
 	"log"
 	"net/http"
@@ -28,11 +28,11 @@ func main() {
 
 	cfg.Print()
 
-	conn, err := pgx.Connect(ctx, cfg.PgConnectUrl)
+	conn, err := pgxpool.New(ctx, cfg.PgConnectUrl)
 	if err != nil {
 		log.Fatal(err)
 	}
-	defer conn.Close(ctx)
+	defer conn.Close()
 
 	repos := service.Repositories{
 		Users:  users_repo.New(ctx, conn),
